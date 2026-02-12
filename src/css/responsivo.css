@@ -1,0 +1,137 @@
+/* ============================================================
+   1. DESKTOPS E LAPTOPS (Telas Grandes)
+   Focado em: Monitores Full HD e MacBooks.
+   ============================================================ */
+@media screen and (min-width: 1025px) {
+    .body {
+        background-attachment: fixed; /* Fundo fixo para efeito de profundidade */
+    }
+
+    .card-Bianca {
+        max-width: 420px; /* Largura máxima ideal para desktop */
+        transition: transform 0.3s ease; /* Prepara o efeito de hover */
+    }
+
+    .card-Bianca:hover {
+        transform: translateY(-5px); /* Efeito sutil de flutuação ao passar o mouse */
+    }
+}
+
+/* ============================================================
+   2. TABLETS (Modo Retrato)
+   Focado em: iPads e Galaxy Tabs.
+   ============================================================ */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    .body {
+        padding: 3rem; /* Aumenta o respiro em volta do card */
+    }
+
+    .card-Bianca {
+        max-width: 400px; /* Card ligeiramente maior que no mobile */
+        padding: 2rem;
+    }
+}
+
+/* ============================================================
+   3. MOBILE GERAL (Até 480px)
+   Ajustes de segurança para evitar sobreposição e vazamentos.
+   ============================================================ */
+@media screen and (max-width: 480px) {
+    /* Reposiciona o botão de tema para não atropelar o card */
+    .btn-tema {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+    }
+    
+    .body {
+        padding-top: 80px !important; /* Espaço de segurança para o botão superior */
+        justify-content: flex-start; /* Garante que o card comece no topo do scroll */
+    }
+
+    /* Ajuste da seção de contatos para não vazar lateralmente */
+    .item-contato {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .item-contato a, .item-contato p {
+        font-size: 0.85rem;
+        word-break: break-word; /* Quebra e-mails longos se necessário */
+    }
+}
+
+/* ============================================================
+   4. AJUSTE DE ABAS (Telas de 375px a 400px)
+   Resolve o problema de espaço nos botões "Sobre/Habilidades/Contato".
+   ============================================================ */
+@media screen and (max-width: 400px) {
+    .botoes {
+        display: flex;
+        justify-content: center; 
+        padding: 5px;
+        gap: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ajuste para o texto não cortar (Substituindo o erro anterior no .body) */
+    .botoes button {
+        flex: none; /* REMOVE a divisão por igual que causa o corte */
+        width: auto; /* Deixa o botão crescer conforme o texto */
+        padding: 8px 10px; /* Padding lateral maior para garantir que o texto apareça */
+        font-size: 0.8rem; /* Tamanho de fonte seguro */
+    }
+}
+
+/* ============================================================
+   5. TELAS PEQUENAS E CRÍTICAS (320px a 360px)
+   Ajustes agressivos para a palavra "Habilidades" não cortar.
+   ============================================================ */
+@media screen and (max-width: 360px) {
+    .card-Bianca {
+        padding: 1.2rem 1rem; /* Compacta o card internamente */
+    }
+
+    .card-Bianca h2 {
+        font-size: 1.4rem; /* Diminui o nome para evitar quebra de linha */
+    }
+
+    .botoes button {
+        font-size: 0.75rem; /* Fonte mínima legível */
+        letter-spacing: -0.5px; /* Aperta as letras para ganhar espaço */
+        padding: 6px 6px;
+        text-overflow: clip; 
+        overflow: visible;
+    }
+
+    .lista-habilidades li {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #sobre p {
+        font-size: 0.85rem; /* Ajusta a bio para telas pequenas */
+    }
+}
+
+/* ============================================================
+   6. MODO PAISAGEM (Landscape)
+   Ajuste para celulares virados de lado.
+   ============================================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .body {
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    
+    .avatar {
+        margin-top: 1rem; /* Reduz o espaço no topo para o card aparecer mais rápido */
+    }
+}
