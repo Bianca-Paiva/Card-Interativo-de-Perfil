@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Interativo</title>
+    <link rel="stylesheet" href="src/css/card2.css">
+</head>
+<body>
+
+    <button id="botao-tema" onclick="alternarTema()">🌙 Modo Escuro</button>
+
+    <main class="card">
+        <div class="avatar">
+            <img src="perfilimage.png" id="foto-perfil">
+        </div>
+
+        <h1 class="nome">Stephany Calmon</h1>
+        <h2 class="funcao">Desenvolvedora de Sistemas</h2>
+
+        <div class="botoes-grupo">
+            <button onclick="alternarConteudo('sobre')">Sobre</button>
+            <button onclick="alternarConteudo('habilidades')">Habilidades</button>
+            <button onclick="alternarConteudo('contato')">Contato</button>
+        </div>
+
+        <div id="sobre" class="secao">
+            <p>Estudante de Desenvolvimento de Sistemas.</p>
+        </div>
+
+        <div id="habilidades" class="secao">
+            <ul class="lista-habilidades">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+
+        <div id="contato" class="secao">
+            <p> Email: Stephany@gmail.com</p>
+            <p>Cell: (11) 988888888</p>
+            <p>São Paulo, Brasil</p>
+        </div>
+    </main>
+
+    <script src="src/js/card2.js"></script>
+</body>
+</html>

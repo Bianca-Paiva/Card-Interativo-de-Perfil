@@ -1,0 +1,116 @@
+:root {
+    --fundo: #e9ecef;
+    --card: #ffffff;
+    --texto: #2d3436;
+    --primaria: #0984e3;
+    --botao-fundo: #dfe6e9;
+}
+
+body.modo-escuro {
+    --fundo: #1e272e;
+    --card: #2f3640;
+    --texto: #f5f6fa;
+    --primaria: #00a8ff;
+    --botao-fundo: #3d3d3d;
+}
+
+/* geral de texto e margens */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+.card {
+    background-color: var(--card);
+    width: 100%;
+    max-width: 340px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border: 3px solid var(--primaria);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden; /* corta a imagem para ficar redonda */
+}
+
+#foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* não deixa a foto esticar */
+}
+
+.nome {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.funcao {
+    font-size: 0.8rem;
+    color: var(--primaria);
+    margin-bottom: 15px;
+}
+
+/* botões em linha */
+.botoes-grupo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.botoes-grupo button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--botao-fundo);
+    color: var(--texto);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* sobre, habilidades etc */
+.secao {
+    display: none; /* começa escondido */
+    padding: 15px;
+    margin-top: 15px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+.secao.ativa {
+    display: block;
+}
+
+#botao-tema {
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--card);
+    color: var(--texto);
+    cursor: pointer;
+    font-weight: bold;
+}
