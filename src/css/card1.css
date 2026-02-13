@@ -3,30 +3,22 @@
    Configurações padrão para a interface iluminada.
    ================================ */
 :root {
-    /* Cor principal de fundo: aplicada no card e fundos de botões ativos */
     --bg-primary: #ffffff;
-
-    /* Fundo secundário: usado para o fundo da página e áreas de contraste */
+    /* Fundo primário: branco puro para o corpo do card */
     --bg-secondary: #ffffff;
-
-    /* Cor principal do texto: preto puro para máxima legibilidade */
+    /* Fundo secundário: branco puro para o fundo da página */
     --text-primary: #000000;
-
-    /* Cor secundária: cinza suave para cargos e informações de apoio */
+    /* Cor primária: preto puro para textos principais */
     --text-secondary: #797979;
-
-    /* Cor das bordas: cinza muito claro para separação sutil de elementos */
+    /* Cor secundária: cinza médio para textos secundários */
     --border-color: #e8e8e8d5;
-
-    /* Cor de destaque: fundo da cápsula de navegação e efeitos de hover */
+    /* Cor da borda: cinza claro para delimitar elementos */
     --accent-color: #d9d9d974;
-
-    /* Sombra do card: cria elevação e profundidade no modo claro */
-    --shadow: 0 20px 25px -5px #0000001a,
-        0 10px 10px -5px #0000000a;
-
-    /* Sombra leve: utilizada em botões menores e elementos flutuantes */
+    /* Cor de destaque: cinza muito claro para cápsula de botões */
+    --shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+    /* Sombra padrão: leve e difusa para o card */
     --shadow-light: 0 10px 15px -3px #0000001a;
+    /* Sombra leve para botões */
 }
 
 /* ================================
@@ -34,24 +26,20 @@
    Sobrescrita de variáveis quando o atributo [data-theme="dark"] está ativo.
    ================================ */
 [data-theme="dark"] {
-    /* Cinza muito escuro para o corpo do card */
     --bg-primary: #1d1d1d;
-
-    /* Preto profundo para o fundo da página (melhora o contraste) */
+    /* Cinza muito escuro para o corpo do card */
     --bg-secondary: #121212;
-
-    /* Branco off-white para reduzir o cansaço visual no escuro */
+    /* Preto quase puro para o fundo da página */
     --text-primary: #f8fafc;
+    /* Branco suave para textos principais */
     --text-secondary: #f8fafc;
-
-    /* Borda cinza grafite para delimitar elementos no fundo escuro */
+    /* Branco suave para textos secundários */
     --border-color: #333333;
-
-    /* Tom levemente mais claro que o fundo para destacar a cápsula de botões */
+    /* Cinza escuro para delimitar elementos */
     --accent-color: #2d2d2d;
-
-    /* Sombra reforçada: mais opaca para ser visível sobre fundos escuros */
+    /* Cinza escuro para cápsula de botões */
     --shadow: 0 20px 25px -5px #000000b3;
+    /* Sombra mais intensa para o card no modo escuro */
 }
 
 /* Garante que os itens de habilidade mantenham a consistência no modo escuro */
@@ -59,9 +47,17 @@
     --bg-primary: #1d1d1d;
     --bg-secondary: #121212;
     --text-primary: #f8fafc;
+    --text-secondary: #f8fafc;
     --border-color: #333333;
     --accent-color: #2d2d2d;
     --shadow: 0 20px 25px -5px #000000b3;
+}
+
+.layout {
+    gap: 40px;
+    justify-content: center;
+    padding: 40px;
+    height: auto;
 }
 
 /* ================================
@@ -69,68 +65,39 @@
    Define o comportamento do fundo e centralização do card.
    ================================ */
 #projeto-bianca .container-geral {
-    /* Garante que o fundo cubra no mínimo a altura total do navegador */
-    min-height: 100vh;
     margin: 0;
-
-    /* Mantém o gradiente fixo durante a rolagem */
-    background-attachment: fixed;
-
-    font-family: Arial, sans-serif;
-
-    /* Flexbox para centralizar o card perfeitamente na tela */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    /* Cores dinâmicas baseadas no tema selecionado */
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-
-    /* Gradiente radial: cria um ponto de luz no canto superior direito */
-    background: radial-gradient(circle at top right, var(--bg-primary), var(--bg-secondary));
-    background-attachment: fixed;
-
-    /* Suaviza a troca de cores ao alternar o tema */
-    transition: background 0.3s ease, color 0.3s ease;
-
     gap: 40px;
+    padding-top: 40px;
+    position: relative; /* Isso cria a "âncora" para o botão */
+    min-height: 100vh;  /* Garante que o fundo ocupe a tela toda */
+    
+    transition: background 0.3s ease, color 0.3s ease;
+    /* Suaviza a troca de cores ao alternar o tema */
 }
 
 /* ================================
    BOTÃO DE TEMA (SOL/LUA)
-   Botão flutuante para troca de interface.
    ================================ */
 .btn-tema {
-    /* Fixado no canto superior para estar sempre acessível */
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
+    position: absolute; /* Ele se posiciona em relação ao container, não à tela */
+    top: 20px;          /* Distância do topo do container */
+    right: 20px;        /* Distância da direita do container */
 
+    /* Estilizações de tamanho e cores */
     width: 48px;
     height: 48px;
-
     border: none;
     border-radius: 30%;
-    /* Formato arredondado moderno */
-
     background: var(--bg-primary);
     color: var(--text-primary);
-
     box-shadow: var(--shadow-light);
-
     cursor: pointer;
 
-    /* Alinha o ícone SVG centralizado no botão */
+    /* Centralização do ícone */
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* Camada alta para não ser coberto pelo card */
-    z-index: 1000;
+    z-index: 10;  
 }
 
 /* Controla a visibilidade dos ícones de Lua/Sol baseada no tema */
@@ -162,7 +129,7 @@
 #projeto-bianca main {
     display: flex;
     justify-content: center;
-    max-width: 420px;
+    max-width: auto;
 }
 
 /* ================================
@@ -171,30 +138,28 @@
    ================================ */
 #projeto-bianca .card-Bianca {
     background: var(--bg-primary);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
     border-radius: 24px;
     padding: 1.5rem;
-
-    box-shadow: var(--shadow);
-
     position: relative;
-
     /* Responsividade: ocupa 95% da tela em mobile, mas trava em 380px */
-    max-width: 380px; /* Largura fixa para Bianca */
-    min-height: auto;
-    width: 90vw; /* Segurança para telas pequenas */
-
-    /* Garante que o padding não aumente o tamanho total do card */
+    max-width: 380px;
+    /* Altura mínima para evitar colapsos em telas pequenas */
+    width: 90vw;
+    /* Segurança para telas pequenas */
     box-sizing: border-box;
-
-    /* Evita que elementos internos quebrem o arredondamento das bordas */
-    overflow: hidden;
-
-    border: 1px solid var(--border-color);
-
-    /* Efeito Glassmorphism: desfoca levemente o fundo atrás do card */
+    /* Garante que o padding não aumente o tamanho total do card */
+    /* overflow: visible; */
+    /* permitir expansão do conteúdo */
     backdrop-filter: blur(10px);
-
-    flex-shrink: 0 !important; /* Impede que o card seja esmagado */
+    /* Efeito Glassmorphism: desfoca levemente o fundo atrás do card */
+    flex-shrink: 0 !important;
+    /* Impede que o card encolha em telas muito pequenas */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
 }
 
 /* Detalhe estético: linha fina de 1px no topo do card */
@@ -204,10 +169,15 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
     background: linear-gradient(90deg, transparent, #ffffff1a, transparent);
     border-radius: 24px 24px 0 0;
 }
+
+#projeto-bianca .conteudo {
+    padding-bottom: 8px;
+    /* Espaço extra para evitar que o conteúdo fique colado na borda inferior do card */
+}
+
 
 /* ================================
    BOTÃO EDITAR
@@ -217,20 +187,15 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-
     width: 36px;
     height: 36px;
-
     border: 2px solid var(--border-color);
     border-radius: 12px;
-
     background: var(--bg-primary);
     color: var(--text-primary);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
 }
 
@@ -247,7 +212,6 @@
 
 #projeto-bianca .avatar img {
     width: 96px;
-    height: 96px;
     border-radius: 50%;
     /* Torna a imagem circular */
     object-fit: cover;
@@ -259,7 +223,7 @@
    ================================ */
 #projeto-bianca .card-Bianca h2 {
     font-size: 1.75rem;
-    font-weight: 700;
+    font-weight: bold;
     color: var(--text-primary);
     text-align: center;
     margin-bottom: 0.25rem;
@@ -270,7 +234,7 @@
     color: var(--text-secondary);
     text-align: center;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: semi-bold;
     margin-bottom: 2rem;
     cursor: default;
 }
@@ -291,23 +255,22 @@
 }
 
 #projeto-bianca .botoes button {
-    flex: 1;
-    /* Faz os 3 botões dividirem o espaço igualmente */
+    flex: auto;
     min-width: 0;
-    /* Permite que o botão diminua em telas muito pequenas */
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
-    /* Impede que o texto pule linha */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Adiciona "..." se o texto não couber */
-    padding: 8px 2px;
+    /* impede quebra estranha */
     border-radius: 999px;
     border: none;
     background: transparent;
     color: var(--text-primary);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 /* Estilização do botão que representa a aba aberta no momento */
@@ -336,14 +299,13 @@
 }
 
 /* ================================
-   HABILIDADES 
+   HABILIDADES
    Lista de etiquetas (chips) centralizada.
    ================================ */
 #projeto-bianca .lista-habilidades {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    /* Empilha as habilidades se não couberem na linha */
+    flex-wrap: wrap; /* Empilha as habilidades se não couberem na linha */
     justify-content: center;
     gap: 8px;
     width: 100%;
@@ -357,22 +319,22 @@
     border: 1px solid var(--border-color);
     padding: 0.6rem 1.2rem;
     border-radius: 50px;
-    /* Formato de pílula */
-    font-weight: 600;
+    font-weight: normal;
     font-size: 0.85rem;
     white-space: nowrap;
+    color: var(--text-primary);
 }
 
 /* ================================
-   SEÇÃO DE CONTATO 
+   SEÇÃO DE CONTATO
    ================================ */
 
 /* Layout de lista vertical para ícones e textos de contato */
-#projeto-bianca #contato.secao.ativo {
+#projeto-bianca #bianca-contato.secao.ativo {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 10px 10px;
+    padding: 10px;
     cursor: default;
 }
 
@@ -383,13 +345,11 @@
     gap: 12px;
     text-align: left;
     width: 100%;
-    overflow: hidden;
 }
 
 /* Estilização dos ícones sociais/contato */
 #projeto-bianca .item-contato svg {
-    flex-shrink: 0;
-    /* Impede que o ícone diminua em telas apertadas */
+    flex-shrink: 0; /* Impede que o ícone diminua em telas apertadas */
     width: 18px;
     color: var(--text-secondary);
 }
@@ -397,28 +357,32 @@
 #projeto-bianca .item-contato p,
 #projeto-bianca .item-contato a {
     margin: 0;
-    word-break: break-all;
-    /* Quebra e-mails/links muito longos em mobile */
+    word-break: break-all; /* Quebra e-mails/links muito longos em mobile */
     font-size: 0.9rem;
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: normal;
 }
 
 /* ================================
    SEÇÃO SOBRE
    ================================ */
-#projeto-bianca #sobre p {
+#projeto-bianca .secao {
     color: var(--text-primary);
+}
 
-    white-space: normal !important; /* Permite que o texto pule linha */
-    overflow: visible !important; /* Garante que o texto não seja escondido */
-    text-overflow: clip !important; /* Remove os três pontinhos se houver */
-    line-height: 1.5;
+
+#projeto-bianca #sobre p {
+    white-space: normal !important; /* Permite a quebra de linha natural */
+    line-height: 1.6; /* Aumenta o espaço entre linhas (conforto visual) */
     display: block !important; /* Garante que o parágrafo se comporte como bloco */
-    max-width: 100% !important; /* Ocupa toda a largura interna do card */    
-    text-align: left;
+    max-width: 100% !important; /* Ocupa toda a largura interna do card */
+    text-align: left; /* Alinhamento à esquerda facilita a leitura de textos longos */
     font-size: 0.95rem;
-    padding: 0 10px;
+    padding: 0 5px; /* Pequeno recuo interno */
+    margin: 0; /* Remove margens que possam empurrar o card */
+    font-weight: normal; /* Garante que não esteja em negrito */
+    color: var(--text-primary);
     cursor: default;
+    word-break: break-word; /* Quebra palavras muito longas se necessário */
 }
