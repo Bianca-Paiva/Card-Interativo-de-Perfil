@@ -36,17 +36,17 @@
 [data-theme="dark"] {
     /* Cinza muito escuro para o corpo do card */
     --bg-primary: #1d1d1d;
-    
+
     /* Preto profundo para o fundo da página (melhora o contraste) */
     --bg-secondary: #121212;
-    
+
     /* Branco off-white para reduzir o cansaço visual no escuro */
     --text-primary: #f8fafc;
     --text-secondary: #f8fafc;
-    
+
     /* Borda cinza grafite para delimitar elementos no fundo escuro */
     --border-color: #333333;
-    
+
     /* Tom levemente mais claro que o fundo para destacar a cápsula de botões */
     --accent-color: #2d2d2d;
 
@@ -68,9 +68,10 @@
    BODY - Layout principal
    Define o comportamento do fundo e centralização do card.
    ================================ */
-.body {
+#projeto-bianca .container-geral {
     /* Garante que o fundo cubra no mínimo a altura total do navegador */
     min-height: 100vh;
+    margin: 0;
 
     /* Mantém o gradiente fixo durante a rolagem */
     background-attachment: fixed;
@@ -79,11 +80,11 @@
 
     /* Flexbox para centralizar o card perfeitamente na tela */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
-    padding: 2rem;
+    padding: 20px;
 
     /* Cores dinâmicas baseadas no tema selecionado */
     background-color: var(--bg-secondary);
@@ -95,6 +96,8 @@
 
     /* Suaviza a troca de cores ao alternar o tema */
     transition: background 0.3s ease, color 0.3s ease;
+
+    gap: 40px;
 }
 
 /* ================================
@@ -111,7 +114,8 @@
     height: 48px;
 
     border: none;
-    border-radius: 30%; /* Formato arredondado moderno */
+    border-radius: 30%;
+    /* Formato arredondado moderno */
 
     background: var(--bg-primary);
     color: var(--text-primary);
@@ -131,30 +135,33 @@
 
 /* Controla a visibilidade dos ícones de Lua/Sol baseada no tema */
 .btn-tema .bi-moon {
-    opacity: 1; /* Lua visível por padrão */
+    opacity: 1;
+    /* Lua visível por padrão */
 }
 
 [data-theme="dark"] .btn-tema .bi-moon {
-    opacity: 0; /* Oculta lua no modo escuro */
+    opacity: 0;
+    /* Oculta lua no modo escuro */
 }
 
 .btn-tema .bi-brightness-high {
-    opacity: 0; /* Sol oculto por padrão */
+    opacity: 0;
+    /* Sol oculto por padrão */
     position: absolute;
 }
 
 [data-theme="dark"] .btn-tema .bi-brightness-high {
-    opacity: 1; /* Mostra sol no modo escuro */
+    opacity: 1;
+    /* Mostra sol no modo escuro */
 }
 
 /* ================================
    CONTAINER PRINCIPAL
    Limita a largura de expansão do conteúdo.
    ================================ */
-main {
+#projeto-bianca main {
     display: flex;
     justify-content: center;
-    width: 100%;
     max-width: 420px;
 }
 
@@ -162,7 +169,7 @@ main {
    CARD PRINCIPAL
    O componente visual que contém todas as informações da Bianca.
    ================================ */
-.card-Bianca {
+#projeto-bianca .card-Bianca {
     background: var(--bg-primary);
     border-radius: 24px;
     padding: 1.5rem;
@@ -172,13 +179,13 @@ main {
     position: relative;
 
     /* Responsividade: ocupa 95% da tela em mobile, mas trava em 380px */
-    max-width: 380px;
+    max-width: 380px; /* Largura fixa para Bianca */
     min-height: auto;
-    width: 95%;
-    
+    width: 90vw; /* Segurança para telas pequenas */
+
     /* Garante que o padding não aumente o tamanho total do card */
-    box-sizing: border-box; 
-    
+    box-sizing: border-box;
+
     /* Evita que elementos internos quebrem o arredondamento das bordas */
     overflow: hidden;
 
@@ -186,10 +193,12 @@ main {
 
     /* Efeito Glassmorphism: desfoca levemente o fundo atrás do card */
     backdrop-filter: blur(10px);
+
+    flex-shrink: 0 !important; /* Impede que o card seja esmagado */
 }
 
 /* Detalhe estético: linha fina de 1px no topo do card */
-.card-Bianca::before {
+#projeto-bianca .card-Bianca::before {
     content: '';
     position: absolute;
     top: 0;
@@ -204,7 +213,7 @@ main {
    BOTÃO EDITAR
    Ícone posicionado no canto superior do card.
    ================================ */
-.btn-editar {
+#projeto-bianca .btn-editar {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -229,24 +238,26 @@ main {
    AVATAR
    Seção da foto de perfil.
    ================================ */
-.avatar {
+#projeto-bianca .avatar {
     display: flex;
     justify-content: center;
     margin-top: 2.5rem;
     margin-bottom: 1.25rem;
 }
 
-.avatar img {
+#projeto-bianca .avatar img {
     width: 96px;
     height: 96px;
-    border-radius: 50%; /* Torna a imagem circular */
-    object-fit: cover; /* Mantém a proporção do rosto sem achatar */
+    border-radius: 50%;
+    /* Torna a imagem circular */
+    object-fit: cover;
+    /* Mantém a proporção do rosto sem achatar */
 }
 
 /* ================================
    NOME E CARGO
    ================================ */
-.card-Bianca h2 {
+#projeto-bianca .card-Bianca h2 {
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -255,7 +266,7 @@ main {
     cursor: default;
 }
 
-.card-Bianca > p {
+#projeto-bianca .card-Bianca>p {
     color: var(--text-secondary);
     text-align: center;
     font-size: 0.95rem;
@@ -268,7 +279,7 @@ main {
    BOTÕES DE NAVEGAÇÃO
    Menu em formato de cápsula para alternar entre as seções.
    ================================ */
-.botoes {
+#projeto-bianca .botoes {
     display: flex;
     width: 100%;
     background: var(--accent-color);
@@ -279,12 +290,16 @@ main {
     margin-bottom: 1.75rem;
 }
 
-.botoes button {
-    flex: 1; /* Faz os 3 botões dividirem o espaço igualmente */
-    min-width: 0; /* Permite que o botão diminua em telas muito pequenas */
-    white-space: nowrap; /* Impede que o texto pule linha */
+#projeto-bianca .botoes button {
+    flex: 1;
+    /* Faz os 3 botões dividirem o espaço igualmente */
+    min-width: 0;
+    /* Permite que o botão diminua em telas muito pequenas */
+    white-space: nowrap;
+    /* Impede que o texto pule linha */
     overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." se o texto não couber */
+    text-overflow: ellipsis;
+    /* Adiciona "..." se o texto não couber */
     padding: 8px 2px;
     border-radius: 999px;
     border: none;
@@ -296,7 +311,7 @@ main {
 }
 
 /* Estilização do botão que representa a aba aberta no momento */
-.botoes button.ativo {
+#projeto-bianca .botoes button.ativo {
     background: var(--bg-primary);
     box-shadow: 0 4px 10px #00000014;
     color: var(--text-primary);
@@ -306,25 +321,29 @@ main {
    SEÇÕES (Sobre, Habilidades, Contato)
    Controle de visibilidade das abas.
    ================================ */
-.secao {
+#projeto-bianca .secao {
     width: 100%;
-    word-wrap: break-word; /* Evita que textos longos quebrem o layout lateral */
+    word-wrap: break-word;
+    /* Evita que textos longos quebrem o layout lateral */
     overflow-wrap: break-word;
-    display: none; /* Escondido por padrão, ativado via JS */
+    display: none;
+    /* Escondido por padrão, ativado via JS */
 }
 
-.secao.ativo {
-    display: block; /* Mostra apenas a seção com a classe ativo */
+#projeto-bianca .secao.ativo {
+    display: block;
+    /* Mostra apenas a seção com a classe ativo */
 }
 
 /* ================================
    HABILIDADES 
    Lista de etiquetas (chips) centralizada.
    ================================ */
-.lista-habilidades {
+#projeto-bianca .lista-habilidades {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Empilha as habilidades se não couberem na linha */
+    flex-wrap: wrap;
+    /* Empilha as habilidades se não couberem na linha */
     justify-content: center;
     gap: 8px;
     width: 100%;
@@ -333,11 +352,12 @@ main {
     cursor: default;
 }
 
-.lista-habilidades li {
+#projeto-bianca .lista-habilidades li {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     padding: 0.6rem 1.2rem;
-    border-radius: 50px; /* Formato de pílula */
+    border-radius: 50px;
+    /* Formato de pílula */
     font-weight: 600;
     font-size: 0.85rem;
     white-space: nowrap;
@@ -348,7 +368,7 @@ main {
    ================================ */
 
 /* Layout de lista vertical para ícones e textos de contato */
-#contato.secao.ativo {
+#projeto-bianca #contato.secao.ativo {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -357,7 +377,7 @@ main {
 }
 
 /* Alinhamento de cada linha de contato */
-.item-contato {
+#projeto-bianca .item-contato {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -367,16 +387,18 @@ main {
 }
 
 /* Estilização dos ícones sociais/contato */
-.item-contato svg {
-    flex-shrink: 0; /* Impede que o ícone diminua em telas apertadas */
+#projeto-bianca .item-contato svg {
+    flex-shrink: 0;
+    /* Impede que o ícone diminua em telas apertadas */
     width: 18px;
     color: var(--text-secondary);
 }
 
-.item-contato p,
-.item-contato a {
+#projeto-bianca .item-contato p,
+#projeto-bianca .item-contato a {
     margin: 0;
-    word-break: break-all; /* Quebra e-mails/links muito longos em mobile */
+    word-break: break-all;
+    /* Quebra e-mails/links muito longos em mobile */
     font-size: 0.9rem;
     color: var(--text-primary);
     text-decoration: none;
@@ -386,12 +408,17 @@ main {
 /* ================================
    SEÇÃO SOBRE
    ================================ */
-#sobre p {
+#projeto-bianca #sobre p {
     color: var(--text-primary);
-    line-height: 1.6; /* Melhor espaçamento entre linhas para leitura */
+
+    white-space: normal !important; /* Permite que o texto pule linha */
+    overflow: visible !important; /* Garante que o texto não seja escondido */
+    text-overflow: clip !important; /* Remove os três pontinhos se houver */
+    line-height: 1.5;
+    display: block !important; /* Garante que o parágrafo se comporte como bloco */
+    max-width: 100% !important; /* Ocupa toda a largura interna do card */    
     text-align: left;
     font-size: 0.95rem;
-    margin: 0;
     padding: 0 10px;
     cursor: default;
 }

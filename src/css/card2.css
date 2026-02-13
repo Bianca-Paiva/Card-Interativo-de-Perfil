@@ -23,63 +23,99 @@ body.modo-escuro {
 }
 
 body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    background-color: var(--bg-secondary);
+    /* Usa a variável da Bianca como padrão */
+
+    /* O SEGREDO ESTÁ AQUI: */
+    display: flex;
+    flex-direction: row;
+    /* Alinha os projetos horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    gap: 40px;
+    /* Espaço entre o card da Bianca e da Stephany */
+
+    overflow-x: auto;
+    /* Adiciona rolagem se os cards não couberem */
+
+    font-family: Arial, sans-serif;
+}
+
+#projeto-stephany .conteiner-geral {
     background-color: var(--fundo);
     color: var(--texto);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
     transition: 0.3s ease;
+    gap: 40px;
 }
 
-.card {
+#projeto-stephany .card {
     background-color: var(--card);
-    width: 100%;
-    max-width: 340px;
+    width: 380px;
+    /* Largura fixa para Stephany */
+    max-width: 90vw;
+    /* Segurança para telas pequenas */
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    flex-shrink: 0 !important;
+    /* Impede que o card seja esmagado */
 }
 
-.avatar {
+#projeto-stephany .avatar {
     width: 90px;
     height: 90px;
     border: 3px solid var(--primaria);
     border-radius: 50%;
     margin: 0 auto 15px;
-    overflow: hidden; /* corta a imagem para ficar redonda */
+    overflow: hidden;
+    /* corta a imagem para ficar redonda */
 }
 
-#foto-perfil {
+#projeto-stephany #foto-perfil {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* não deixa a foto esticar */
+    object-fit: cover;
+    /* não deixa a foto esticar */
 }
 
-.nome {
+#projeto-stephany .nome {
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 4px;
 }
 
-.funcao {
+#projeto-stephany .funcao {
     font-size: 0.8rem;
     color: var(--primaria);
     margin-bottom: 15px;
 }
 
 /* botões em linha */
-.botoes-grupo {
+#projeto-stephany .botoes-grupo {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Se a tela for MUITO pequena, eles pulam linha em vez de esmagar */
 }
 
-.botoes-grupo button {
-    flex: 1;
+#projeto-stephany .botoes-grupo button {
+    flex: none !important;
+    /* Impede que os botões se dividam igualmente */
+    width: auto !important;
+    /* Deixa o botão crescer conforme o texto */
     padding: 8px;
     border: none;
     border-radius: 10px;
@@ -88,23 +124,31 @@ body {
     cursor: pointer;
     font-size: 0.75rem;
     font-weight: bold;
+    padding: 8px 12px;
+    /* Aumente o respiro lateral */
+    white-space: nowrap;
+    /* Impede que o texto quebre dentro do botão */
+    min-width: 80px;
+    /* O botão se ajusta ao tamanho do texto */
 }
 
 /* sobre, habilidades etc */
-.secao {
-    display: none; /* começa escondido */
+#projeto-stephany .secao {
+    display: none;
+    /* começa escondido */
     padding: 15px;
     margin-top: 15px;
-    background: rgba(0,0,0,0.03);
+    background: #00000008;
     border-radius: 8px;
     font-size: 0.8rem;
 }
 
-.secao.ativa {
-    display: block;
+#projeto-stephany .secao.ativa {
+    display: block !important;
+    /* mostra a seção ativa */
 }
 
-#botao-tema {
+#projeto-stephany #botao-tema {
     margin-bottom: 15px;
     padding: 8px 16px;
     border-radius: 20px;

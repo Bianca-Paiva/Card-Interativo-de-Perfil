@@ -17,6 +17,14 @@
     }
 }
 
+/* Ajuste importante: Para que no celular eles fiquem um embaixo do outro */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
 /* ============================================================
    2. TABLETS (Modo Retrato)
    Focado em: iPads e Galaxy Tabs.
